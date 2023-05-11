@@ -12,7 +12,7 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 crossorigin="anonymous"></script>
 
-<title>스파르타코딩클럽 | 부트스트랩 연습하기</title>   
+<title>💜meenoi💜팬명록</title>   
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
     * {
@@ -70,11 +70,31 @@ crossorigin="anonymous"></script>
             margin-bottom: 10px;
     }
 </style>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+            data: {},
+            success: function (response) {
+                let city = response['city']
+                let temp = response['temp']
+     
+
+                $('#city').text(city);
+                $('#temp').text(temp);
+    
+            }
+        })
+    });
+
+</script>
 </head>
 
 <body>
     <div class="mytitle">
         <h1>미노이 팬명록</h1>
+        <p>현재기온 : <span id="city"></span> / <span id="temp"></span> °C</p>
     </div>
 
     <div class="mypost">
